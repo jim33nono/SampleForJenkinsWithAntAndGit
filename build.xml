@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="AllTest" name="SampleForJenkinsWithAntAndGit">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <property name="junit.output.dir" value="JunitReport"/>
+              	
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="../../.m2/repository/junit/junit/4.12/junit-4.12.jar"/>
+        <pathelement location="../../.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    </path>
+    <path id="SampleForJenkinsWithAnt.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+   
+              	
+              	<!-- Junit Test -->
+              	
+              		<target name="AllTest">
+              	        <mkdir dir="${junit.output.dir}"/>
+              	        <junit fork="yes" printsummary="withOutAndErr"  haltonfailure="no" failureproperty="test.failed" >
+              	        	
+              	            <formatter type="xml"/>
+              	            <test name="TestCase" todir="${junit.output.dir}"/>
+              	        	<test name="UnitTest" todir="${junit.output.dir}"/>
+              	            <classpath refid="SampleForJenkinsWithAnt.classpath"/>
+              	        </junit>
+              			 	
+              			<fail message="Test failure detected, check test results." if="test.failed" /> 
+              			
+              	    </target>
+              	        	
+              	        	
+
+</project>

@@ -34,7 +34,7 @@
               	
               		<target name="AllTest">
               	        <mkdir dir="${junit.output.dir}"/>
-              	        <junit fork="yes" printsummary="withOutAndErr"  haltonfailure="no" failureproperty="test.failed" >
+              	        <junit fork="yes" printsummary="withOutAndErr"  haltonfailure="yes" failureproperty="test.failed" >
               	        	
               	            <formatter type="xml"/>
               	            <test name="TestCase" todir="${junit.output.dir}"/>

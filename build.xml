@@ -42,7 +42,7 @@
               	            <classpath refid="SampleForJenkinsWithAnt.classpath"/>
               	        </junit>
               			 	
-              			<!-- <fail message="Test failure detected, check test results." if="test.failed" />  -->
+              			<fail message="Test failure detected, check test results." if="test.failed" />  
               			
               	    </target>
               	        	
